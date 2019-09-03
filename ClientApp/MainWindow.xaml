@@ -1,0 +1,35 @@
+﻿<Window x:Class="ClientApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientApp"
+        mc:Ignorable="d"
+        xmlns:ViewModels="clr-namespace:ClientApp.ViewModels"
+        xmlns:ValueConverters="clr-namespace:ClientApp.ValueConverters"
+        Title="MainWindow" Height="407" Width="688">
+    <Window.Resources>
+        <ViewModels:VM_Main x:Key="vmMain"/>
+        <ValueConverters:VisibilityValueConverter x:Key="vcVisibility"/>
+        <ValueConverters:NotValueConverter x:Key="vcNot"/>
+    </Window.Resources>
+    <DockPanel LastChildFill="True" DataContext="{StaticResource ResourceKey=vmMain}">
+        <StatusBar DockPanel.Dock="Bottom">
+            <Label Content="Pracuję" Background="Chartreuse" Visibility="{Binding Path=Working, Converter={StaticResource ResourceKey=vcVisibility}}"/>
+        </StatusBar>
+        <Grid>
+            <DatePicker HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="115" SelectedDate="{Binding Path=Date}" IsEnabled="{Binding Path=Working, Converter={StaticResource ResourceKey=vcNot}}"/>
+            <TextBox HorizontalAlignment="Left" Margin="130,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="310" Text="{Binding Path=Wynik}" IsReadOnly="True"/>
+            <Button Content="Cytat Dnia" HorizontalAlignment="Left" Margin="50,40,0,0" VerticalAlignment="Top" Width="75" Command="{Binding Path=CytatDniaCommand}"/>
+            <TextBox HorizontalAlignment="Left" Height="274" Margin="177,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263" Text="{Binding Path=InputText}"/>
+            <Button Content="Zlicz Litery" HorizontalAlignment="Left" Margin="365,314,0,0" VerticalAlignment="Top" Width="75" Command="{Binding Path=ZliczLiteryCommand}"/>
+            <DataGrid HorizontalAlignment="Left" Height="322" Margin="445,12,0,0" VerticalAlignment="Top" Width="223" ItemsSource="{Binding Path=OutputList}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=Litera}" Header="Litera"/>
+                    <DataGridTextColumn Binding="{Binding Path=ProcentWystapien}" Header="Częstotliwość %"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+    </DockPanel>
+</Window>

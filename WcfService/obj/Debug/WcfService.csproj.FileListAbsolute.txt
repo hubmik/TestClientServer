@@ -1,0 +1,7 @@
+C:\Users\hubmi\source\repos\TestClientServer\WcfService\bin\WcfService.dll.config
+C:\Users\hubmi\source\repos\TestClientServer\WcfService\bin\WcfService.dll
+C:\Users\hubmi\source\repos\TestClientServer\WcfService\bin\WcfService.pdb
+C:\Users\hubmi\source\repos\TestClientServer\WcfService\obj\Debug\WcfService.csproj.CoreCompileInputs.cache
+C:\Users\hubmi\source\repos\TestClientServer\WcfService\obj\Debug\WcfService.dll
+C:\Users\hubmi\source\repos\TestClientServer\WcfService\obj\Debug\WcfService.pdb
+C:\Users\hubmi\source\repos\TestClientServer\WcfService\obj\Debug\WcfService.csprojAssemblyReference.cache

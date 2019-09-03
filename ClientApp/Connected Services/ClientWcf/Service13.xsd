@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/WcfService.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfService.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:64847/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfCharStatistic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CharStatistic" nillable="true" type="tns:CharStatistic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCharStatistic" nillable="true" type="tns:ArrayOfCharStatistic" />
+  <xs:complexType name="CharStatistic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Litera" type="ser:char" />
+      <xs:element minOccurs="0" name="ProcentWystapien" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CharStatistic" nillable="true" type="tns:CharStatistic" />
+</xs:schema>
